@@ -1,1 +1,133 @@
-blinky
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>.</title>
+    <link rel="stylesheet" href="css/html5reset-1.6.1.css" type="text/css" media="screen,print">
+    <link href="css/demo.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.novacancy.js"></script>
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+        $('#i').novacancy({
+          'reblinkProbability': 0.1,
+          'blinkMin': 0.2,
+          'blinkMax': 0.6,
+          'loopMin': 3,
+          'loopMax': 3,
+          'color': '#ffffff',
+          'glow': ['0 0 80px #ffffff', '0 0 30px #008000', '0 0 6px #0000ff'],
+          'autoOn': false,
+          'initOff': true
+        });
+
+
+
+        $('#miss').novacancy({
+          'reblinkProbability': 0.1,
+          'blinkMin': 0.2,
+          'blinkMax': 0.6,
+          'loopMin': 3,
+          'loopMax': 3,
+          'color': 'Red',
+          'glow': ['0 0 80px Red', '0 0 30px FireBrick', '0 0 6px DarkRed'],
+          'autoOn': false,
+          'initOff': true
+        });
+
+        $('#missed').novacancy({
+          'reblinkProbability': 0.1,
+          'blinkMin': 0.2,
+          'blinkMax': 0.6,
+          'loopMin': 3,
+          'loopMax': 3,
+          'color': 'Red',
+          'glow': ['0 0 80px Red', '0 0 30px FireBrick', '0 0 6px DarkRed'],
+          'autoOn': false,
+          'initOff': true
+        });
+
+        $('#you').novacancy({
+          'reblinkProbability': 0.1,
+          'blinkMin': 0.5,
+          'blinkMax': 0.8,
+          'loopMin': 3,
+          'loopMax': 3,
+          'color': '#ffffff',
+          'glow': ['0 0 80px #ffffff', '0 0 30px #008000', '0 0 6px #0000ff'],
+          'autoOn': false,
+          'initOff': true
+        });
+
+        setTimeout(function (e) {
+          boardFadeIn()
+          $('body').css('background-color', '#000000')
+
+          setTimeout(function (e) {
+            boardGlowOn()
+
+            setTimeout(function (e) {
+              boardBlinkOn()
+
+            }, 10000)
+
+          }, 3000)
+
+        }, 5000)
+
+        function boardFadeIn() {
+          setTimeout(function() {
+            $("#i").fadeIn({'duration': 3000})
+          }, 1000)
+
+          setTimeout(function() {
+            $("#miss").fadeIn({'duration': 3000})
+          }, 3000)
+
+          setTimeout(function() {
+            $("#you").fadeIn({'duration': 3000})
+          }, 5000)
+        }
+
+        function boardGlowOn() {
+          $('#i').trigger('glowOn');
+          $('#miss').trigger('glowOn');
+          $('#you').trigger('glowOn');
+        }
+
+        function boardBlinkOn() {
+          $('#i').trigger('blinkOn');
+          $('#miss').trigger('blinkOn');
+          $('#you').trigger('blinkOn');
+
+
+          $('span').toggleClass('no-transition')
+        }
+      });
+
+
+    </script>
+</head>
+<body>
+<div class="board">
+    <p id="i" style="display: none">i</p>
+    <p id="miss" style="display: none">miss</p>
+    <p id="missed" style="display: none">missed</p>
+    <p id="you" style="display: none">you</p>
+</div>
+</body>
+</html>

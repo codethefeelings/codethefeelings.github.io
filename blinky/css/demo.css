@@ -1,0 +1,93 @@
+body {
+    background-color: #333333;
+    transition: background-color 8s;
+}
+
+.board {
+    text-align: center;
+    width: 800px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.board h1 {
+    font-weight: normal;
+}
+
+.board span {
+    font-size: 100px;
+    font-family: 'Monoton', cursive;
+    color: #fff;
+    text-transform: uppercase;
+}
+/*.board p {*/
+    /*font-size: 16px;*/
+    /*font-family: 'Monoton', cursive;*/
+    /*color: #fff;*/
+    /*text-transform: uppercase;*/
+/*}*/
+
+.board p span {
+    transition: color 10s, text-shadow 10s, opacity 10s
+}
+
+span.novacancy.on.no-text-shadow {
+    text-shadow: none !important;
+}
+
+
+span.no-transition {
+    transition: none !important;
+}
+
+/********************
+*
+* responsive
+*
+********************/
+
+@media screen and (max-width:359px){
+    .board {
+        width: 250px;
+    }
+    .board span {
+        font-size: 35px;
+    }
+}
+@media screen and (min-width:360px) and (max-width:399px){
+    .board {
+        width: 300px;
+    }
+    .board span {
+        font-size: 45px;
+    }
+}
+@media screen and (min-width:400px) and (max-width:479px){
+    .board {
+        width: 350px;
+    }
+    .board span {
+        font-size: 55px;
+    }
+}
+@media screen and (min-width:480px) and (max-width:639px){
+    .board {
+        width: 400px;
+    }
+    .board span {
+        font-size: 65px;
+    }
+}
+@media screen and (min-width:640px) and (max-width:799px){
+    .board {
+        width: 450px;
+    }
+    .board span {
+        font-size: 70px;
+    }
+}
